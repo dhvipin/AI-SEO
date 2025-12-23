@@ -723,83 +723,157 @@
 
     /* ===== FULL SCREEN CAROUSEL ===== */
 
-    .carousel {
-        position: relative;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
+    /* ===== CAROUSEL ===== */
+.carousel {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* IMAGES */
+.carousel-track {
+    display: flex;
+    height: 100%;
+}
+
+.carousel-track img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* ===== CINEMATIC 2026 OVERLAY ===== */
+.carousel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(0,0,0,0.15), rgba(0,0,0,0.85)),
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85));
+    z-index: 2;
+}
+
+/* ===== GLASSMORPHIC CENTER PANEL ===== */
+.carousel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    text-align: center;
+
+    padding: 40px 60px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 0 80px rgba(0, 180, 255, 0.25),
+        inset 0 0 40px rgba(255, 255, 255, 0.05);
+
+    animation: floatSoft 6s ease-in-out infinite;
+}
+
+/* ===== FUTURISTIC TEXT ===== */
+.carousel-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.1;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #8fd3ff,
+        #ffffff
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 30px rgba(0, 180, 255, 0.6);
+}
+
+.carousel-subtitle {
+    margin-top: 18px;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== SOFT FLOAT ANIMATION ===== */
+@keyframes floatSoft {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-12px);
+    }
+}
+
+/* ===== ARROWS (MINIMAL 2026) ===== */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+
+    color: #fff;
+    font-size: 1.8rem;
+    border: none;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow.left {
+    left: 40px;
+}
+
+.carousel-arrow.right {
+    right: 40px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .carousel-content {
+        padding: 30px 25px;
+        width: 90%;
     }
 
-    .carousel-track {
-        display: flex;
-        height: 100%;
-        transition: transform 0.8s ease-in-out;
+    .carousel-title {
+        font-size: 2.2rem;
     }
 
-    .carousel-track img {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        flex-shrink: 0;
+    .carousel-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
     }
+}
 
-    /* LEFT ARROW */
-    .carousel-arrow.left {
-        position: absolute;
-        left: 30px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        font-size: 3rem;
-        background: rgba(0, 0, 0, 0.45);
-        color: white;
-        border: none;
-        padding: 10px 16px;
-        cursor: pointer;
-        border-radius: 50%;
-        transition: background 0.3s ease;
-    }
 
-    .carousel-arrow.left:hover {
-        background: rgba(0, 0, 0, 0.75);
-    }
 
-    /* DARK OVERLAY ON ALL CAROUSEL IMAGES */
-    .carousel::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.45),
-                rgba(0, 0, 0, 0.45));
-        z-index: 2;
-        pointer-events: none;
-    }
 
-    .carousel-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 3;
-        font-size: 3rem;
-        background: rgba(0, 0, 0, 0.45);
-        color: white;
-        border: none;
-        padding: 10px 16px;
-        cursor: pointer;
-        border-radius: 50%;
-    }
 
-    .carousel-arrow.left {
-        left: 30px;
-    }
 
-    .carousel-arrow.right {
-        right: 30px;
-    }
 
-    .carousel-arrow:hover {
-        background: rgba(0, 0, 0, 0.75);
-    }
 
 
 
@@ -843,9 +917,10 @@
 
     /* ================= SMALL MOBILE ================= */
     @media (max-width: 480px) {
-        .logo-div{
+        .logo-div {
             padding: 8px 10px;
         }
+
         .logo-div h2 {
             font-size: 14px;
             line-height: 1.4;
