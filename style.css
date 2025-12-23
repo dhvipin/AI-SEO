@@ -227,6 +227,13 @@
         padding: 5rem 1.5rem;
     }
 
+
+
+
+
+
+
+
     .container {
         max-width: 1200px;
         margin: auto;
@@ -299,6 +306,121 @@
         color: var(--text-muted);
         font-size: 0.95rem;
     }
+
+/* ================= AI CARD EFFECTS ================= */
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft animated glow */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        600px circle at var(--x, 50%) var(--y, 50%),
+        rgba(99, 102, 241, 0.18),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* AI-like gradient border */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(99, 102, 241, 0.6),
+        rgba(14, 165, 233, 0.6),
+        transparent
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+.icon {
+    position: relative;
+    overflow: hidden;
+}
+
+.icon::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card:hover .icon {
+    transform: scale(1.08);
+}
+.card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.card {
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateY(-6px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /* ================= COMPARISON ================= */
     .comparison {
