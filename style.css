@@ -1052,3 +1052,95 @@
             height: 30px;
         }
     }
+
+
+
+
+
+/* ===================================================
+   AUTO SCROLLING CARD ROW (LEFT → RIGHT)
+   Only for AI SEO section
+   =================================================== */
+
+.auto-scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.auto-scroll-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollCardsLeft 45s linear infinite;
+}
+
+/* Card sizing for horizontal scroll */
+.auto-scroll-track .card {
+  min-width: 280px;
+  max-width: 280px;
+  flex-shrink: 0;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .auto-scroll-track .card {
+    min-width: 320px;
+    max-width: 320px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .auto-scroll-track {
+    animation-duration: 60s;
+  }
+
+  .auto-scroll-track .card {
+    min-width: 260px;
+    max-width: 260px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .auto-scroll-track {
+    animation-duration: 70s;
+  }
+
+  .auto-scroll-track .card {
+    min-width: 220px;
+    max-width: 220px;
+  }
+}
+
+/* Animation */
+@keyframes scrollCardsLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover (desktop UX) */
+@media (hover: hover) {
+  .auto-scroll-wrapper:hover .auto-scroll-track {
+    animation-play-state: paused;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
