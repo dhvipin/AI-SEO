@@ -27,7 +27,7 @@
         padding-top: 140px;
         line-height: 1.7;
         overflow-x: hidden;
-        padding-top: 80px;
+        padding-top: 10px;
         /* space for top scroll */
         padding-bottom: 100px;
         /* space for bottom scroll */
@@ -307,102 +307,99 @@
         font-size: 0.95rem;
     }
 
-/* ================= AI CARD EFFECTS ================= */
+    /* ================= AI CARD EFFECTS ================= */
 
-.card {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Soft animated glow */
-.card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        600px circle at var(--x, 50%) var(--y, 50%),
-        rgba(99, 102, 241, 0.18),
-        transparent 40%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
-
-.card:hover::before {
-    opacity: 1;
-}
-
-/* AI-like gradient border */
-.card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(99, 102, 241, 0.6),
-        rgba(14, 165, 233, 0.6),
-        transparent
-    );
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.card:hover::after {
-    opacity: 1;
-}
-.icon {
-    position: relative;
-    overflow: hidden;
-}
-
-.icon::after {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    background: conic-gradient(
-        from 0deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    animation: spin 6s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+    .card {
+        position: relative;
+        overflow: hidden;
     }
-}
 
-.card:hover .icon {
-    transform: scale(1.08);
-}
-.card {
-    opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
+    /* Soft animated glow */
+    .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%),
+                rgba(99, 102, 241, 0.18),
+                transparent 40%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
 
-.card.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-.card {
-    transform-style: preserve-3d;
-}
+    .card:hover::before {
+        opacity: 1;
+    }
 
-.card:hover {
-    transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateY(-6px);
-}
+    /* AI-like gradient border */
+    .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(120deg,
+                transparent,
+                rgba(99, 102, 241, 0.6),
+                rgba(14, 165, 233, 0.6),
+                transparent);
+        -webkit-mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .card:hover::after {
+        opacity: 1;
+    }
+
+    .icon {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .icon::after {
+        content: "";
+        position: absolute;
+        inset: -50%;
+        background: conic-gradient(from 0deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent);
+        animation: spin 6s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .card:hover .icon {
+        transform: scale(1.08);
+    }
+
+    .card {
+        opacity: 1;
+        transform: none;
+    }
+
+
+    .card.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .card {
+        transform-style: preserve-3d;
+    }
+
+    .card:hover {
+        transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateY(-6px);
+    }
 
 
 
@@ -468,6 +465,7 @@
     .final-cta p {
         color: var(--text-muted);
         max-width: 700px;
+        font-size: 17px;
         margin: 0 auto 2rem;
     }
 
@@ -511,7 +509,7 @@
     }
 
     .footer-brand-full p {
-        color: #9ca3af;
+        color: #ffffff;
         font-size: 1rem;
         line-height: 1.9;
         max-width: 100%;
@@ -531,7 +529,7 @@
 
     .footer-bottom p {
         font-size: 0.85rem;
-        color: #9ca3af;
+        color: #ffffff;
     }
 
     .footer-socials a {
@@ -549,7 +547,7 @@
     .footer-socials a {
         font-size: 1.3rem;
         margin-left: 1rem;
-        color: #e5e7eb;
+        color: #ffffff;
         opacity: 0.8;
         transition: opacity 0.2s ease, transform 0.2s ease;
     }
@@ -562,6 +560,75 @@
     }
 
 
+    /* FAQ CSS IS HERERR ??????????????? */
+    /* =========================
+   AI FAQ ACCORDION STYLES
+   ========================= */
+
+    .ai-faq-section {
+        padding: 4rem 0;
+    }
+
+    .ai-faq-title {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .ai-faq-list {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .ai-faq-item {
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: background 0.3s ease;
+    }
+
+    .ai-faq-item[open] {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .ai-faq-question {
+        cursor: pointer;
+        padding: 1.25rem 1.5rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+    }
+
+    .ai-faq-question::-webkit-details-marker {
+        display: none;
+    }
+
+    .ai-faq-icon {
+        font-size: 1.4rem;
+        transition: transform 0.3s ease;
+    }
+
+    .ai-faq-item[open] .ai-faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .ai-faq-answer {
+        padding: 0 1.5rem 1.5rem;
+        line-height: 1.7;
+        opacity: 0.9;
+    }
+
+    /* Mobile Optimization */
+    @media (max-width: 600px) {
+        .ai-faq-question {
+            font-size: 1rem;
+        }
+    }
 
 
 
@@ -846,149 +913,150 @@
     /* ===== FULL SCREEN CAROUSEL ===== */
 
     /* ===== CAROUSEL ===== */
-.carousel {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* IMAGES */
-.carousel-track {
-    display: flex;
-    height: 100%;
-}
-
-.carousel-track img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    flex-shrink: 0;
-}
-
-/* ===== CINEMATIC 2026 OVERLAY ===== */
-.carousel::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at center, rgba(0,0,0,0.15), rgba(0,0,0,0.85)),
-        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85));
-    z-index: 2;
-}
-
-/* ===== GLASSMORPHIC CENTER PANEL ===== */
-.carousel-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 4;
-    text-align: center;
-
-    padding: 40px 60px;
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    box-shadow:
-        0 0 80px rgba(0, 180, 255, 0.25),
-        inset 0 0 40px rgba(255, 255, 255, 0.05);
-
-    animation: floatSoft 6s ease-in-out infinite;
-}
-
-/* ===== FUTURISTIC TEXT ===== */
-.carousel-title {
-    font-size: 3.5rem;
-    font-weight: 900;
-    letter-spacing: -1px;
-    line-height: 1.1;
-
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #8fd3ff,
-        #ffffff
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    text-shadow:
-        0 0 30px rgba(0, 180, 255, 0.6);
-}
-
-.carousel-subtitle {
-    margin-top: 18px;
-    font-size: 1.1rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-/* ===== SOFT FLOAT ANIMATION ===== */
-@keyframes floatSoft {
-    0%, 100% {
-        transform: translate(-50%, -50%) translateY(0);
+    .carousel {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
     }
-    50% {
-        transform: translate(-50%, -50%) translateY(-12px);
+
+    /* IMAGES */
+    .carousel-track {
+        display: flex;
+        height: 100%;
     }
-}
 
-/* ===== ARROWS (MINIMAL 2026) ===== */
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
+    .carousel-track img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
 
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
+    /* ===== CINEMATIC OVERLAY ===== */
+    .carousel::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at center, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.85)),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.85));
+        z-index: 2;
+    }
 
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-
-    color: #fff;
-    font-size: 1.8rem;
-    border: none;
-    cursor: pointer;
-
-    transition: all 0.3s ease;
-}
-
-.carousel-arrow:hover {
-    background: rgba(255, 255, 255, 0.18);
-    transform: translateY(-50%) scale(1.08);
-}
-
-.carousel-arrow.left {
-    left: 40px;
-}
-
-.carousel-arrow.right {
-    right: 40px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+    /* ===== GLASSMORPHIC CENTER PANEL ===== */
     .carousel-content {
-        padding: 30px 25px;
-        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 4;
+        text-align: center;
+
+        padding: 40px 60px;
+        border-radius: 20px;
+
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        box-shadow:
+            0 0 80px rgba(0, 180, 255, 0.25),
+            inset 0 0 40px rgba(255, 255, 255, 0.05);
+
+        animation: floatSoft 6s ease-in-out infinite;
     }
 
+    /* ===== FUTURISTIC TEXT ===== */
     .carousel-title {
-        font-size: 2.2rem;
+        font-size: 3.5rem;
+        font-weight: 900;
+        letter-spacing: -1px;
+        line-height: 1.1;
+
+        background: linear-gradient(90deg,
+                #ffffff,
+                #8fd3ff,
+                #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        text-shadow:
+            0 0 30px rgba(0, 180, 255, 0.6);
     }
 
     .carousel-subtitle {
-        font-size: 0.9rem;
-        letter-spacing: 2px;
+        margin-top: 18px;
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
     }
-}
+
+    /* ===== SOFT FLOAT ANIMATION ===== */
+    @keyframes floatSoft {
+
+        0%,
+        100% {
+            transform: translate(-50%, -50%) translateY(0);
+        }
+
+        50% {
+            transform: translate(-50%, -50%) translateY(-12px);
+        }
+    }
+
+    /* ===== ARROWS (MINIMAL) ===== */
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+
+        color: #fff;
+        font-size: 1.8rem;
+        border: none;
+        cursor: pointer;
+
+        transition: all 0.3s ease;
+    }
+
+    .carousel-arrow:hover {
+        background: rgba(255, 255, 255, 0.18);
+        transform: translateY(-50%) scale(1.08);
+    }
+
+    .carousel-arrow.left {
+        left: 40px;
+    }
+
+    .carousel-arrow.right {
+        right: 40px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+        .carousel-content {
+            padding: 30px 25px;
+            width: 90%;
+        }
+
+        .carousel-title {
+            font-size: 2.2rem;
+        }
+
+        .carousel-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+    }
 
 
 
@@ -1055,92 +1123,483 @@
 
 
 
+    @keyframes scrollRight {
+        from {
+            transform: translateX(-50%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
 
 
-/* ===================================================
+    /* ===================================================
    AUTO SCROLLING CARD ROW (LEFT → RIGHT)
    Only for AI SEO section
    =================================================== */
 
-.auto-scroll-wrapper {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-}
+    /* ================= AUTO SCROLLING AI SEO CARDS ================= */
 
-.auto-scroll-track {
-  display: flex;
-  gap: 2rem;
-  width: max-content;
-  animation: scrollCardsLeft 45s linear infinite;
-}
+    .auto-scroll-wrapper {
+        width: 100%;
+        overflow: hidden;
+        /* 🔥 hide overflow */
+        position: relative;
+        margin-top: 2.5rem;
+    }
 
-/* Card sizing for horizontal scroll */
-.auto-scroll-track .card {
-  min-width: 280px;
-  max-width: 280px;
-  flex-shrink: 0;
-}
+    /* Track */
+    .auto-scroll-track {
+        display: flex;
+        flex-wrap: nowrap;
+        /* 🔥 ONE ROW ONLY */
+        gap: 1.5rem;
+        width: max-content;
+        animation: scrollLeft 40s linear infinite;
+    }
 
-/* Desktop */
-@media (min-width: 1024px) {
-  .auto-scroll-track .card {
-    min-width: 320px;
-    max-width: 320px;
+    /* Individual Card */
+    .auto-scroll-track .card {
+        min-width: 300px;
+        max-width: 300px;
+        flex-shrink: 0;
+        /* 🔥 never shrink */
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 1.6rem;
+        color: #fff;
+    }
+
+    /* Animation */
+    @keyframes scrollLeft {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Pause on hover */
+    @media (hover: hover) {
+        .auto-scroll-wrapper:hover .auto-scroll-track {
+            animation-play-state: paused;
+        }
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1024px) {
+        .auto-scroll-track {
+            animation-duration: 50s;
+        }
+
+        .auto-scroll-track .card {
+            min-width: 280px;
+            max-width: 280px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .auto-scroll-track {
+            animation-duration: 60s;
+        }
+
+        .auto-scroll-track .card {
+            min-width: 260px;
+            max-width: 260px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .auto-scroll-track {
+            animation-duration: 70s;
+        }
+
+        .auto-scroll-track .card {
+            min-width: 220px;
+            max-width: 220px;
+        }
+
+  
+    }
+
+
+
+    /* ================= DYNAMIC HERO SECTION WITH IMAGE SLIDER ================= */
+    .hero-section {
+        position: relative;
+        color: white;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .hero-slideshow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .slide-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+        transform: scale(1.05);
+        filter: brightness(0.7);
+    }
+
+    .slide-bg.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Lighter overlay for better image visibility */
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg,
+                rgba(0, 0, 0, 0.6) 0%,
+                rgba(0, 0, 0, 0.4) 100%);
+        z-index: 1;
+    }
+
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        padding: 40px 20px;
+        width: 100%;
+    }
+
+    .hero-tagline {
+        color: #ffffff;
+        font-size: 1.2rem;
+        background-color: #10328d;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        /* background: rgba(0, 0, 0, 0.7); */
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 50px;
+        border: 2px solid rgba(207, 32, 48, 0.3);
+    }
+
+    .hero-text-slider {
+        min-height: 280px;
+        position: relative;
+        margin: 30px 0 50px 0;
+        overflow: hidden;
+    }
+
+    .text-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s ease, transform 1s ease;
+        padding: 0 20px;
+    }
+
+    .text-slide.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .text-slide-headline {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 25px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .text-slide-quote {
+        font-size: 1.4rem;
+        line-height: 1.7;
+        max-width: 900px;
+        margin: 0 auto;
+        color: #fff;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px 30px;
+        border-radius: 15px;
+        display: inline-block;
+        border-left: 4px solid #10328d;
+        animation: fadeInUp 1.2s ease-out 0.3s both;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: #10328d;
+        color: white;
+        border: none;
+        padding: 20px 50px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        box-shadow: 0 10px 30px rgba(207, 32, 48, 0.3);
+        margin-top: 30px;
+        animation: fadeInUp 1.5s ease-out 0.6s both;
+    }
+
+    .cta-button:hover {
+        background: #071f01fd;
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 35px rgba(207, 32, 48, 0.4);
+    }
+
+    /* Slide navigation dots */
+    .slider-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 50px;
+    }
+
+    .slider-dots {
+        display: flex;
+        gap: 15px;
+    }
+
+    .dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dot::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #10328d;
+        transition: left 4s linear;
+    }
+
+    .dot.active::after {
+        left: 0;
+    }
+
+    .dot:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: scale(1.2);
+    }
+
+    .dot.active {
+        background: transparent;
+        border-color: #10328d;
+        transform: scale(1.2);
+    }
+
+    /* Progress bar for auto-scroll */
+    .progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        background: #10328d;
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 4s linear;
+        z-index: 3;
+    }
+
+    .slide-bg.active .progress-bar {
+        transform: scaleX(1);
+    }
+
+    /* =====================================
+   RESPONSIVE HERO FIX (ALL DEVICES)
+   ===================================== */
+
+/* Large laptops (≤ 1200px) */
+@media (max-width: 1200px) {
+  .text-slide-headline {
+    font-size: 3rem;
+  }
+
+  .text-slide-quote {
+    font-size: 1.25rem;
+    max-width: 800px;
   }
 }
 
-/* Tablet */
+/* Tablets & small laptops (≤ 992px) */
+@media (max-width: 992px) {
+  .hero-section {
+    min-height: 90vh;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    padding: 10px 24px;
+    letter-spacing: 2px;
+  }
+
+  .text-slide-headline {
+    font-size: 2.6rem;
+    line-height: 1.2;
+  }
+
+  .text-slide-quote {
+    font-size: 1.15rem;
+    padding: 18px 24px;
+  }
+
+  .cta-button {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+  }
+
+  .hero-text-slider {
+    min-height: 240px;
+  }
+}
+
+/* Mobile landscape & large phones (≤ 768px) */
 @media (max-width: 768px) {
-  .auto-scroll-track {
-    animation-duration: 60s;
+  .hero-section {
+    min-height: 85vh;
   }
 
-  .auto-scroll-track .card {
-    min-width: 260px;
-    max-width: 260px;
+  .hero-container {
+    padding: 30px 15px;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+    padding: 8px 20px;
+    margin-bottom: 15px;
+  }
+
+  .text-slide-headline {
+    font-size: 2.2rem;
+  }
+
+  .text-slide-quote {
+    font-size: 1.05rem;
+    padding: 15px 20px;
+    border-left-width: 3px;
+  }
+
+  .cta-button {
+    padding: 14px 32px;
+    font-size: 1rem;
+    margin-top: 25px;
+  }
+
+  .slider-controls {
+    margin-top: 35px;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
   }
 }
 
-/* Mobile */
+/* Small phones (≤ 480px) */
 @media (max-width: 480px) {
-  .auto-scroll-track {
-    animation-duration: 70s;
+  .hero-section {
+    min-height: 100svh; /* FIX for mobile browser UI */
   }
 
-  .auto-scroll-track .card {
-    min-width: 220px;
-    max-width: 220px;
+  .hero-tagline {
+    font-size: 0.85rem;
+    padding: 7px 16px;
+    letter-spacing: 1.5px;
+  }
+
+  .text-slide-headline {
+    font-size: 1.8rem;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .text-slide-quote {
+    font-size: 0.95rem;
+    padding: 14px 16px;
+    max-width: 100%;
+  }
+
+  .cta-button {
+    padding: 12px 26px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+  }
+
+  .slider-controls {
+    margin-top: 25px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
   }
 }
 
-/* Animation */
-@keyframes scrollCardsLeft {
-  from {
-    transform: translateX(0);
+/* Ultra small phones (≤ 360px) */
+@media (max-width: 360px) {
+  .text-slide-headline {
+    font-size: 1.6rem;
   }
-  to {
-    transform: translateX(-50%);
-  }
-}
 
-/* Pause on hover (desktop UX) */
-@media (hover: hover) {
-  .auto-scroll-wrapper:hover .auto-scroll-track {
-    animation-play-state: paused;
+  .text-slide-quote {
+    font-size: 0.9rem;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+.hero-section {
+  min-height: 100svh;
+}
